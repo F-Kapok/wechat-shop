@@ -24,6 +24,5 @@ nbproject/private/
 dist/
 nbdist/
 .nb-gradle/
-package.json
 package-lock.json
 *.lock
