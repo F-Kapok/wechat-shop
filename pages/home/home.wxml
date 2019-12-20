@@ -1,0 +1,31 @@
+<l-loadmore show type="{{loadingType}}" end-text="-kapok作品-">
+    <view slot="content" class="home">
+        <!-- 主题A -->
+        <image class="top-theme" src="{{themeA.entrance_img}}" />
+        <!-- bannerB -->
+        <swiper class="swiper" indicator-dots indicator-active-color="#157658" autoplay circular>
+            <block wx:for="{{bannerB.items}}" wx:key="{{index}}">
+                <swiper-item>
+                    <image class="swiper" src="{{item.img}}" />
+                </swiper-item>
+            </block>
+        </swiper>
+        <!-- 六宫格 -->
+        <s-category-grid grid="{{grid}}" />
+        <!-- 优惠活动 -->
+        <image class="activity" src="{{activity.entrance_img}}" />
+        <!-- spu列表 -->
+        <s-spu-scroll theme="{{themeE}}" spu-list="{{themeESpu}}" wx:if="{{themeE.online}}"></s-spu-scroll>
+        <!-- 主题F -->
+        <image class="quality" src="{{themeF.entrance_img}}" />
+        <!-- 热榜列表-theme+banner组合形式 -->
+        <s-hot-list banner="{{bannerG}}" />
+        <!-- 主题H -->
+        <image class="fashion" src="{{themeH.entrance_img}}" />
+        <!-- 为你推荐-瀑布流 -->
+        <view class="spu-bottom">
+            <image class="title-spu-bottom" src="/imgs/home/title@interest.png" />
+            <l-water-flow generic:l-water-flow-item="s-spu-preview"></l-water-flow>
+        </view>
+    </view>
+</l-loadmore>  

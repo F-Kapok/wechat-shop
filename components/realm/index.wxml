@@ -1,0 +1,15 @@
+<view class="container">
+    <!-- 商品基本信息 -->
+    <view class="">
+        <image src="{{}}" />
+    </view>
+    <!-- 商品sku组合 -->
+    <block wx:for="{{fences}}" wx:key="{{index}}">
+        <s-fence fence="{{item}}"></s-fence>
+    </block>
+    <!-- 商品数量选择器 -->
+    <view class="counter-container">
+        <!-- <l-counter></l-counter> -->
+    </view>
+    <!-- 商品处理按钮 -->
+</view>
