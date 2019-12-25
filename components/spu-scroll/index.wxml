@@ -3,7 +3,7 @@
     <image class="title" src="{{theme.title_img}}" />
     <scroll-view scroll-x class="scroll-view">
         <view class="inner">
-            <block wx:for="{{spuList}}" wx:key="{{index}}">
+            <block wx:for="{{spuList}}" wx:key="index">
                 <view class="spu-container">
                     <image class="spu-img" src="{{item.img}}" />
                     <text class="spu-text">
