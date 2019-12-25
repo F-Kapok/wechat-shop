@@ -4,7 +4,9 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        cell: Object
+        cell: Object,
+        y: Number,
+        x: Number
     },
 
     /**
@@ -21,7 +23,9 @@ Component({
         onTap(event){
             this.triggerEvent('celltap',{
                 //子组件 父组件
-                cell:this.properties.cell
+                cell:this.properties.cell,
+                x:this.properties.x,
+                y:this.properties.y
             },{
                 bubbles:true,
                 composed:true
