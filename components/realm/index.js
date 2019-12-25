@@ -36,6 +36,10 @@ Component({
             this.setData({
                 fences: fenceGroup.fences
             })
+        },
+
+        onCellTap(event){
+           const cell = event.detail.cell;
         }
     }
 })

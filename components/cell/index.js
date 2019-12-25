@@ -18,6 +18,14 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        onTap(event){
+            this.triggerEvent('celltap',{
+                //子组件 父组件
+                cell:this.properties.cell
+            },{
+                bubbles:true,
+                composed:true
+            })
+        }
     }
 })
