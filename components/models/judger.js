@@ -15,6 +15,7 @@ class Judger {
 
     _initSkuPending() {
         this.skuPending = new SkuPending();
+        //若有默认sku则加入到选中状态
     }
     _initPathDict() {
         this.fenceGroup.spu.sku_list.forEach(s => {
