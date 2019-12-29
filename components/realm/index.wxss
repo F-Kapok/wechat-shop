@@ -6,6 +6,10 @@
     background-color: #ffffff;
 }
 
+.inner-container {
+    padding: 30rpx 30rpx 0 30rpx;
+}
+
 .sku-preview {
     display: flex;
     flex-direction: row;
@@ -38,8 +42,20 @@
     margin-left: 20rpx;
 }
 
-.priced-row {
+.price-row {
     display: flex;
     flex-direction: row;
     align-items: baseline;
+}
+
+.stock {
+    margin-left: 30rpx;
+    font-size: 20rpx;
+    color: #999;
+}
+
+.stock-pinch {
+    margin-left: 30rpx;
+    font-size: 20rpx;
+    color: #D20109;
 }

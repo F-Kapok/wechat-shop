@@ -7,14 +7,16 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        spu: Object
+        spu: Object,
+        previewImg: String,
+        title: String
     },
 
     /**
      * 组件的初始数据
      */
     data: {
-        judger:Object
+        judger: Object
     },
 
     observers: {
@@ -25,8 +27,14 @@ Component({
             const fenceGroup = new FenceGroup(spu);
             fenceGroup.initFences();
             const judger = new Judger(fenceGroup);
-            this.data.judger=judger;
+            this.data.judger = judger;
             // fenceGroup.initFences1();
+            const defaultSku = fenceGroup.getDefaultSku();
+            if (defaultSku) {
+                this.bindSkuData(defaultSku);
+            } else {
+                this.bindSpuData();
+            }
             this.bindInitData(fenceGroup);
         }
     },
@@ -35,19 +43,39 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        bindSpuData() {
+            const spu = this.properties.spu;
+            this.setData({
+                previewImg: spu.img,
+                title: spu.title,
+                price: spu.price,
+                discountPrice: spu.discount_price
+            });
+        },
+
+        bindSkuData(sku) {
+            this.setData({
+                previewImg: sku.img,
+                title: sku.title,
+                price: sku.price,
+                discountPrice: sku.discount_price,
+                stock: sku.stock
+            });
+        },
+
         bindInitData(fenceGroup) {
             this.setData({
                 fences: fenceGroup.fences
             })
         },
 
-        onCellTap(event){
-           const cell = event.detail.cell;
-           const x = event.detail.x;
-           const y = event.detail.y;
-           const judger = this.data.judger;
-           judger.judge(cell, x, y);
-           this.setData({
+        onCellTap(event) {
+            const cell = event.detail.cell;
+            const x = event.detail.x;
+            const y = event.detail.y;
+            const judger = this.data.judger;
+            judger.judge(cell, x, y);
+            this.setData({
                 fences: judger.fenceGroup.fences
             });
         }
