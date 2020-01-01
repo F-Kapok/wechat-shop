@@ -58,7 +58,14 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/detail/detail",
+					"name": "无规格realm",
+					"pathName": "pages/detail/detail",
+					"query": "pid=11",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "有默认规格的realm",
 					"pathName": "pages/detail/detail",
 					"query": "pid=2",
 					"scene": null

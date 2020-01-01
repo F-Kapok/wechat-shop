@@ -7,14 +7,31 @@ class Judger {
     fenceGroup;
     pathDict = [];
     skuPending;
+
     constructor(fenceGroup) {
         this.fenceGroup = fenceGroup;
         this._initPathDict();
         this._initSkuPending();
     }
 
+    isSkuIntact() {
+        return this.skuPending.isIntact();
+    }
+
+    getCurrentValues() {
+        return this.skuPending.getCurrentSpecValues();
+    }
+
+    getMissingKeys() {
+        const missingKeysIndex = this.skuPending.getMissingSpecKeysIndex();
+        return missingKeysIndex.map(i => {
+            return this.fenceGroup.fences[i].title;
+        });
+    }
+
     _initSkuPending() {
-        this.skuPending = new SkuPending();
+        const specsLength = this.fenceGroup.fences.length;
+        this.skuPending = new SkuPending(specsLength);
         //若有默认sku则加入到选中状态
         const defaultSku = this.fenceGroup.getDefaultSku();
         if (!defaultSku) {
@@ -30,6 +47,13 @@ class Judger {
             this.fenceGroup.setCellStatusById(cell.id, CellStatus.SELECTED);
         });
     }
+
+    getDeterminateSku() {
+        const code = this.skuPending.getSkuCode();
+        const sku = this.fenceGroup.getSku(code);
+        return sku;
+    }
+
     _initPathDict() {
         this.fenceGroup.spu.sku_list.forEach(s => {
             const skuCode = new SkuCode(s.code);
