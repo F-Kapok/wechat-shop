@@ -69,6 +69,12 @@
 					"pathName": "pages/detail/detail",
 					"query": "pid=2",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品分类",
+					"pathName": "pages/category/category",
+					"scene": null
 				}
 			]
 		}

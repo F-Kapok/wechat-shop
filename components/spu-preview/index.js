@@ -25,7 +25,7 @@ Component({
             const tags = data.tags.split('$');
             this.setData({
                 tags
-            })
+            });
         }
     },
 

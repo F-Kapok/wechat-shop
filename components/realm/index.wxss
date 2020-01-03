@@ -2,8 +2,16 @@
 
 .container {
     box-sizing: border-box;
-    padding: 30rpx;
+    /* padding: 30rpx; */
     background-color: #ffffff;
+    max-height: 1000rpx;
+    /* max-height: 1050rpx; */
+    min-height: 700rpx;
+    margin-bottom: 100rpx;
+}
+
+.inner-container{
+    padding: 30rpx 30rpx 0 30rpx;
 }
 
 .inner-container {
@@ -66,4 +74,38 @@
 
 .sku-pending>text:nth-child(2) {
     color: #666666;
+}
+
+.counter-container{
+    margin-top: 34rpx;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 200rpx;
+}
+
+.counter-container text{
+    color: #555555;
+    font-size: 24rpx;
+}
+
+.bottom-btn{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100rpx;
+    background-color: #333333;
+    position: absolute;
+    bottom: 0;
+}
+
+.out-stock{
+    background-color: #dcebe6;
+}
+
+.bottom-btn text{
+    color: #ffffff;
 }

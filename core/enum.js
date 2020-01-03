@@ -1,9 +1,15 @@
-const CellStatus={
-    FORBIDDEN:'forbidden',
-    SELECTED:'selected',
-    WAITING:'waiting '
+const CellStatus = {
+    FORBIDDEN: 'forbidden',
+    SELECTED: 'selected',
+    WAITING: 'waiting '
 }
 
-export{
-    CellStatus
+const ShoppingWay = {
+    CART: 'cart',
+    BUY: 'buy'
+}
+
+export {
+    CellStatus,
+    ShoppingWay
 }
