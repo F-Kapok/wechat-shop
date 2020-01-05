@@ -1,18 +1,17 @@
 <view class="container">
     <view class="search-container">
-        <l-button shape="square"
-                  width="710"
-                  height="60"
-                  icon="research"
-                  icon-size="24"
-                  icon-color="#C4C9D2"
-                  l-class="search-btn"
-                  bind:lintap="onGotoSearch">
+        <l-button shape="square" width="710" height="60" icon="research" icon-size="24" icon-color="#C4C9D2" l-class="search-btn" bind:lintap="onGotoSearch">
             搜索商品
         </l-button>
     </view>
     <view class="main">
-        <view></view>
-        <view></view>
+        <l-segment height="{{segHeight}}" width="160" item-height="90 " even="{{false }}" placement="left" l-active-class="segment-item-active" l-inactive-class="segment-item" l-line-class="l-seg-line" scrollable active-key="{{defaultRootId}}" bind:linchange="onSeqChange">
+            <block wx:for="{{roots}}" wx:key="{{index}}">
+                <l-segment-item key="{{item.id}}" tab="{{item.name}}"></l-segment-item>
+            </block>
+        </l-segment>
+        <view class="right">
+            <s-sub-category bind:itemtab="onJumpToSpuList" categories="{{currentSubs}}" bannerImg="{{currentBannerImg}}"></s-sub-category>
+        </view>
     </view>
 </view>
