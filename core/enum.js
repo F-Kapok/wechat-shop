@@ -16,8 +16,13 @@ const SpuListType = {
     LATEST: 'latest'
 }
 
+const TagType = {
+    HOT_SEARCH: 1
+}
+
 export {
     CellStatus,
     ShoppingWay,
-    SpuListType
+    SpuListType,
+    TagType
 }

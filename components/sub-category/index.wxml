@@ -2,7 +2,7 @@
     <image class="banner" wx:if="{{bannerImg}}" src="{{bannerImg}}" />
     <text class="title">- 全部分类 -</text>
     <l-grid l-class="inner-container">
-        <block wx:for="{{categories}}" wx:key="{{index}}">
+        <block wx:for="{{categories}}" wx:key="index">
             <l-grid-item bind:linitemtap="onTabGridItem" key="{{item.id}}" slot="{{item.id}}">
                 <view class="grid-item">
                     <image mode="aspectFit" class="img" src="{{item.img}}" />
