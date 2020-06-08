@@ -156,6 +156,45 @@ Component({
             this.bindTipData();
             this.bindFenceGroupData(judger.fenceGroup);
             this.triggerSpecEvent();
+        },
+
+        onBuyOrCart(event) {
+            if (Spu.isNoSpec(this.properties.spu)) {
+                this.shoppingNoSpec();
+            } else {
+                this.shoppingVarious();
+            }
+        },
+
+        shoppingVarious() {
+            const intact = this.data.judger.isSkuIntact();
+            if (!intact) {
+                const missKeys = this.data.judger.getMissingKeys();
+                wx.showToast({
+                    icon: "none",
+                    title: `请选择：${missKeys.join(', ')}`,
+                    duration: 3000
+                });
+                return;
+            }
+            this._triggerShoppingEvent(this.data.judger.getDeterminateSku());
+        },
+
+        shoppingNoSpec() {
+            this._triggerShoppingEvent(this.getNoSpecSku());
+        },
+
+        getNoSpecSku() {
+            return this.properties.spu.sku_list[0];
+        },
+
+        _triggerShoppingEvent(sku) {
+            this.triggerSpecEvent('shopping', {
+                orderWay: this.properties.orderWay,
+                spuId: this.properties.spu.id,
+                sku: sku,
+                skuCount: this.data.currentCount,
+            })
         }
     }
 })
