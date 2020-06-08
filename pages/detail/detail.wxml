@@ -1,8 +1,6 @@
 <!-- 商品详情 -->
 <scroll-view style="height:{{h}}rpx;" scroll-y>
-    <swiper class="top"
-            autoplay
-            indicator-dots>
+    <swiper class="top" autoplay indicator-dots>
         <block wx:for="{{spu.spu_img_list}}" wx:key="index">
             <swiper-item>
                 <image class="top" mode="aspectFill" src="{{item.img}}"></image>
@@ -35,11 +33,7 @@
 </scroll-view>
 <!-- sku商品滑动 -->
 <l-popup show="{{showRealm}}" content-align="bottom">
-    <s-realm bind:specchange="onSpecChange"  order-way="{{orderWay}}" spu="{{spu}}"></s-realm>
+    <s-realm bind:shopping="onShopping" bind:specchange="onSpecChange" order-way="{{orderWay}}" spu="{{spu}}"></s-realm>
 </l-popup>
 <!-- 商品操作tab -->
-<s-tabbar class="tabbar" bind:gotphome="onGotoHome"
-          bind:gotocart="onGotoCart"
-          bind:addtocart="onAddToCart"
-          bind:buy="onBuy">
-</s-tabbar>
+<s-tabbar class="tabbar" bind:gotphome="onGotoHome" bind:gotocart="onGotoCart" bind:addtocart="onAddToCart" bind:buy="onBuy"></s-tabbar>
