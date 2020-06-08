@@ -1,10 +1,10 @@
 <wxs src="../../wxs/price.wxs" module="p" />
 <view class="container">
-    <image class="title" src="{{theme.title_img}}" />
+    <image bind:tap="onMore" class="title" src="{{theme.title_img}}" />
     <scroll-view scroll-x class="scroll-view">
         <view class="inner">
             <block wx:for="{{spuList}}" wx:key="index">
-                <view class="spu-container">
+                <view data-spu-id="{{item.id}}" bind:tap="onTap" class="spu-container">
                     <image class="spu-img" src="{{item.img}}" />
                     <text class="spu-text">
                         {{item.title.length>=8?s.substring(item.title,0,7)+'...':item.title}}
