@@ -36,4 +36,4 @@
     <s-realm bind:shopping="onShopping" bind:specchange="onSpecChange" order-way="{{orderWay}}" spu="{{spu}}"></s-realm>
 </l-popup>
 <!-- 商品操作tab -->
-<s-tabbar class="tabbar" bind:gotphome="onGotoHome" bind:gotocart="onGotoCart" bind:addtocart="onAddToCart" bind:buy="onBuy"></s-tabbar>
+<s-tabbar class="tabbar" cart-item-count="{{cartItemCount}}" bind:gotphome="onGotoHome" bind:gotocart="onGotoCart" bind:addtocart="onAddToCart" bind:buy="onBuy"></s-tabbar>

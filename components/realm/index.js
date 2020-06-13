@@ -196,11 +196,11 @@ Component({
         },
 
         _triggerShoppingEvent(sku) {
-            this.triggerSpecEvent('shopping', {
+            this.triggerEvent('shopping', {
                 orderWay: this.properties.orderWay,
                 spuId: this.properties.spu.id,
                 sku: sku,
-                skuCount: this.data.currentCount,
+                skuCount: this.data.currentSkuCount
             })
         }
     }
