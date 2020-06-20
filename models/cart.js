@@ -19,6 +19,37 @@ class Cart {
         return this._getCartData();
     }
 
+    replaceItemCount(skuId, newCount) {
+        const oldItem = this.findEqualItem(skuId)
+        if (!oldItem) {
+            console.error('异常情况，更新CartItem中的数量不应当找不到相应数据')
+            return
+        }
+        if (newCount < 1) {
+            console.error('异常情况，CartItem的Count不可能小于1')
+            return
+        }
+        oldItem.count = newCount
+        if (oldItem.count >= Cart.SKU_MAX_COUNT) {
+            oldItem.count = Cart.SKU_MAX_COUNT
+        }
+        this._refreshStorage()
+    }
+
+    checkItem(skuId) {
+        const oldItem = this.findEqualItem(skuId)
+        oldItem.checked = !oldItem.checked
+        this._refreshStorage()
+    }
+
+    static isSoldOut(item) {
+        return item.sku.stock === 0
+    }
+
+    static isOnline(item) {
+        return item.sku.online
+    }
+
     isEmpty() {
         const cart = this._getCartData();
         return cart.items.length === 0;
@@ -36,11 +67,11 @@ class Cart {
         this._refreshStorage();
     }
 
-    remove(skuId) {
+    removeItem(skuId) {
         const oldItemIndex = this._findEqualItemIndex(skuId);
         const cartData = this._getCartData();
         cartData.items.splice(oldItemIndex, 1);
-        this._refreshStorage;
+        this._refreshStorage();
     }
 
     _findEqualItemIndex(skuId) {

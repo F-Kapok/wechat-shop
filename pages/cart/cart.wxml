@@ -1,6 +1,6 @@
 <veiw wx:if="{{!isEmpty}}" class="container">
     <block wx:for="{{cartItems}}" wx:key="index">
-        <s-cart-item bind:overflow="onOverflow"></s-cart-item>
+        <s-cart-item bind:overflow="onOverflow" cart-item="{{item}}"></s-cart-item>
     </block>
 </veiw>
 <view class="empty-container" wx:if="{{isEmpty}}">

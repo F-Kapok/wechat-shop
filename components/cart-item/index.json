@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "s-counter": "/components/counter/index",
+    "s-checkbox": "/components/checkbox/index"
+  }
 }

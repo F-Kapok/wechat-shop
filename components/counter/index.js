@@ -31,6 +31,7 @@ Component({
    */
   methods: {
     onOverStep(event) {
+      debugger
       const minOrMaxOut = event.detail.type;
       if (minOrMaxOut == 'overflow_max') {
         wx.showToast({
@@ -39,7 +40,7 @@ Component({
           title: `超出最大购买数量`
         });
       }
-      if(minOrMaxOut == 'overflow_min'){
+      if (minOrMaxOut == 'overflow_min') {
         wx.showToast({
           icon: "none",
           duration: 3000,
