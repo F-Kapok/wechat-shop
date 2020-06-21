@@ -31,7 +31,6 @@ Component({
    */
   methods: {
     onOverStep(event) {
-      debugger
       const minOrMaxOut = event.detail.type;
       if (minOrMaxOut == 'overflow_max') {
         wx.showToast({

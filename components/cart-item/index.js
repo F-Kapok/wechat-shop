@@ -66,10 +66,9 @@ Component({
       this.triggerEvent('itemcheck', {})
     },
     onSelectCount(event) {
-      let newCount = event.detail.count
-      console.log(newCount)
-      cart.replaceItemCount(this.properties.cartItem.skuId, newCount)
-      this.triggerEvent("countfloat")
+      let newCount = event.detail.count;
+      cart.replaceItemCount(this.properties.cartItem.skuId, newCount);
+      this.triggerEvent("countfloat");
     }
   }
 })
