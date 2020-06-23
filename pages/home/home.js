@@ -25,6 +25,15 @@ Page({
     },
 
     /**
+     * 组件的方法列表
+     */
+    onGoToBanner(event) {
+        const keyword = event.currentTarget.dataset.keyword;
+        const type = event.currentTarget.dataset.type;
+        Banner.gotoTarget(type, keyword);
+    },
+
+    /**
      * 生命周期函数--监听页面加载
      */
     async onLoad(options) {
@@ -76,14 +85,14 @@ Page({
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: async function() {
+    onReachBottom: async function () {
         const data = await this.data.spuPaging.getMoreData();
         if (!data) {
             return;
@@ -99,7 +108,7 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

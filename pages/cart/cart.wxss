@@ -107,14 +107,14 @@ page{
     background-color: #f3f4f6;
 }
 
-.for-you-container{
+.hot-container{
     width: 100%;
     display:flex;
     flex-direction:column;
     justify-content: center;
 }
 
-.title{
+.hot-title{
     margin-top:10rpx;
     height: 100rpx;
     background-color: #ffffff;
@@ -126,7 +126,7 @@ page{
     color: #333333;
 }
 
-.for-you-spu{
+.hot-spu{
     background-color: #ffffff;
     margin-top: 10rpx;
     padding-top: 30rpx;

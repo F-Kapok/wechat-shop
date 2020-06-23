@@ -20,9 +20,16 @@ const TagType = {
     HOT_SEARCH: 1
 }
 
+const BannerItemType = {
+    SPU: 1,
+    THEME: 2,
+    SPU_LIST: 3
+}
+
 export {
     CellStatus,
     ShoppingWay,
     SpuListType,
-    TagType
+    TagType,
+    BannerItemType
 }

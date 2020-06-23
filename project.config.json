@@ -27,7 +27,7 @@
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.3",
+	"libVersion": "2.11.2",
 	"appid": "wxb596d23b0c9f5dd2",
 	"projectname": "wechat-shop",
 	"debugOptions": {

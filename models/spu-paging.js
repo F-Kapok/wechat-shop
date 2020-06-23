@@ -6,6 +6,11 @@ class SpuPaging {
             url: `/spu/latest`
         }, 5);
     }
+    static getHotPaging() {
+        return new Paging({
+            url: `/spu/hotLatest`
+        }, 5);
+    }
 }
 
 export {

@@ -1,10 +1,10 @@
 // components/spu-scroll/index.js
-import {Theme} from "../../models/theme";
+import { Theme } from "../../models/theme";
 Component({
     /**
      * 组件的属性列表
      */
-    externalClasses:['l-class'],
+    externalClasses: ['l-class'],
     properties: {
         theme: Object,
         spuList: Array

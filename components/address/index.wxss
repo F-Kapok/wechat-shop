@@ -1,0 +1,29 @@
+.container{
+    box-sizing: border-box;
+    width: 750rpx;
+    min-height: 176rpx;
+    padding-top:40rpx;
+    background-color: #F6FBF9;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kapok {
+    font-family: kapok !important;
+    font-size: 36rpx;
+    font-style: normal;
+    color: #157658 !important;
+}
+
+.btn{
+    border-color: #157658 !important;
+    color:#157658 !important;
+}
+
+.bottom-img{
+    width: 750rpx;
+    height: 8rpx;
+    margin-top: 30rpx;
+}

@@ -1,5 +1,6 @@
-import { Cart } from "../../models/cart"
+import { Cart } from "../../models/cart";
 import { Calculator } from "../../models/caculator";
+import { SpuPaging } from "../../models/spu-paging";
 
 // pages/cart/cart.js
 const cart = new Cart();
@@ -24,7 +25,20 @@ Page({
     this.setData({
       cartItems: cartData.items
     });
+    this.initBottomSpuList();
   },
+
+  async initBottomSpuList() {
+    const paging = SpuPaging.getLatestPaging();
+    //FIXME const paging = SpuPaging.getHotPaging();
+    this.data.spuPaging = paging;
+    const data = await paging.getMoreData();
+    if (!data) {
+      return;
+    }
+    wx.lin.renderWaterFlow(data.items);
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -121,5 +135,28 @@ Page({
     wx.showTabBarRedDot({
       index: 2
     })
-  }
+  },
+  onSettle(event) {
+    if (this.data.totalSkuCount <= 0) {
+      return;
+    }
+    wx.navigateTo({
+      url: `/pages/order/order`
+    });
+  },
+  /**
+     * 页面上拉触底事件的处理函数
+     */
+  onReachBottom: async function () {
+    const data = await this.data.spuPaging.getMoreData();
+    if (!data) {
+      return;
+    }
+    wx.lin.renderWaterFlow(data.items);
+    if (!data.moreData) {
+      this.setData({
+        loadingType: 'end'
+      })
+    }
+  },
 })
