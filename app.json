@@ -71,6 +71,7 @@
     "s-spu-preview-r": "/components/spu-preview-r/index",
     "s-empty": "/components/empty/index",
     "s-checkbox": "/components/checkbox/index",
-    "s-address": "/components/address/index"
+    "s-address": "/components/address/index",
+    "s-empty-screen": "/components/empty-screen/index"
   }
 }
