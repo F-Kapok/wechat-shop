@@ -30,7 +30,7 @@ Page({
 
   async initBottomSpuList() {
     const paging = SpuPaging.getLatestPaging();
-    //FIXME const paging = SpuPaging.getHotPaging();
+    // const paging = SpuPaging.getHotPaging();
     this.data.spuPaging = paging;
     const data = await paging.getMoreData();
     if (!data) {
@@ -107,6 +107,9 @@ Page({
   onDeleteItem(event) {
     this.isAllChecked();
     this.refreshCartData();
+    if (cart._getCartData().items.length === 0) {
+      this.onShow();
+    }
   },
   /**
    * 将购物车中的商品进行全选或非全选

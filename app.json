@@ -8,7 +8,8 @@
     "pages/my/my",
     "pages/search/search",
     "pages/spu-list/spu-list",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/coupon/coupon"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -72,6 +73,8 @@
     "s-empty": "/components/empty/index",
     "s-checkbox": "/components/checkbox/index",
     "s-address": "/components/address/index",
-    "s-empty-screen": "/components/empty-screen/index"
+    "s-empty-screen": "/components/empty-screen/index",
+    "l-dialog": "/miniprogram_npm/lin-ui/dialog/index",
+    "s-order-sku-item": "/components/order-sku-item/index"
   }
 }

@@ -20,13 +20,29 @@ class Cart {
         return this;
     }
 
+    getCheckedSkuIds() {
+        const cartData = this._getCartData();
+        if (cartData.items.length === 0) {
+            return [];
+        }
+        const skuIds = [];
+        cartData.items.forEach(item => {
+            if (item.checked) {
+                skuIds.push(item.sku.id);
+            }
+        });
+        return skuIds;
+    }
+
     /**
      * 同步服务器商品数据
      */
     async getAllSkuFromServer() {
         const cartData = this._getCartData();
         if (cartData.items.length === 0) {
-            return null;
+            return {
+                items: []
+            };
         }
         const skuIds = this.getSkuIds();
         const serverData = await Sku.getSkusByIds(skuIds);
@@ -62,6 +78,16 @@ class Cart {
             item.sku.online = false;
         }
     }
+
+    getSkuCountBySkuId(skuId) {
+        const cartData = this._getCartData();
+        const item = cartData.items.find(item => item.skuId === skuId);
+        if (!item) {
+            console.error('在订单里寻找CartItem时不应当出现找不到的情况');
+        }
+        return item.count;
+    }
+
     /**
      * 获取一组skuId调用服务器获取最新数据
      */

@@ -1,3 +1,11 @@
 <view class="container">
+    <!-- 收获地址 -->
     <s-address bind:address="onChooseAddress"></s-address>
+    <!-- 购买清单 -->
+    <view class="order-item-container">
+        <block wx:for="{{orderItems}}" wx:key="{{item.sku.id}}">
+            <s-order-sku-item l-class="order-item" order-item="{{item}}"></s-order-sku-item>
+        </block>
+    </view>
+    
 </view>

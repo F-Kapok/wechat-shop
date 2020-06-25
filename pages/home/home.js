@@ -3,6 +3,7 @@ import { Banner } from "../../models/banner"
 import { Category } from "../../models/category"
 import { Activity } from "../../models/activity"
 import { SpuPaging } from "../../models/spu-paging"
+import { CouponCenterType } from "../../core/enum";
 
 Page({
 
@@ -81,7 +82,12 @@ Page({
             themeH
         })
     },
-
+    onGoToCoupons(event) {
+        const name = event.currentTarget.dataset.aname;
+        wx.navigateTo({
+            url: `/pages/coupon/coupon?name=${name}&type=${CouponCenterType.ACTIVITY}`
+        });
+    },
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */

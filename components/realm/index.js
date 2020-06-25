@@ -20,8 +20,6 @@ Component({
     data: {
         judger: Object,
         previewImg: String,
-        title: String,
-        noSpecStock: Number,
         currentSkuCount: Cart.SKU_MIN_COUNT
     },
 
@@ -47,8 +45,7 @@ Component({
     methods: {
         processNoSpec(spu) {
             this.setData({
-                noSpec: true,
-                noSpecStock: spu.sku_list[0].stock
+                noSpec: true
             });
             this.bindSkuData(spu.sku_list[0]);
             this.setStockStatus(spu.sku_list[0].stock, this.data.currentSkuCount);

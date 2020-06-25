@@ -13,7 +13,7 @@
         <!-- 六宫格 -->
         <s-category-grid grid="{{grid}}" />
         <!-- 优惠活动 -->
-        <image class="activity" src="{{activity.entrance_img}}" />
+        <image data-aname="a-2" bind:tap="onGoToCoupons" class="activity" src="{{activity.entrance_img}}" />
         <!-- spu列表 -->
         <s-spu-scroll theme="{{themeE}}" spu-list="{{themeESpu}}" wx:if="{{themeE.online}}"></s-spu-scroll>
         <!-- 主题F -->
