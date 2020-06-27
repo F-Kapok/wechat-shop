@@ -314,6 +314,18 @@ class Cart {
         const cartData = this._getCartData();
         return cartData.items.length >= Cart.CART_ITEM_MAX_COUNT;
     }
+    /**
+     * 移除购物车中已选中的商品
+     */
+    removeCheckedItems() {
+        const cartData = this._getCartData();
+        for (let i = 0; i < cartData.items.length; i++) {
+            if (cartData.items[i].checked) {
+                cartData.items.splice(i, 1);
+            }
+        }
+        this._refreshStorage();
+    }
 }
 
 export {

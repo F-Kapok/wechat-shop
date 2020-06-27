@@ -5,7 +5,7 @@
             <text>首页</text>
         </view>
         <view bind:tap="onGoToCart">
-            <l-badge show="{{cartItemCount!==0}}" value="{{cartItemCount}}">
+            <l-badge show="{{cartItemCount!==0}}" value="{{cartItemCount}}" shape="circle" max-count="99">
                 <l-icon name="cart1" size="46" l-class="kapok"></l-icon>
             </l-badge>
             <text>购物车</text>

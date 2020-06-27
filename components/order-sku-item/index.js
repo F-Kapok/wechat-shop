@@ -19,16 +19,16 @@ Component({
 
   observers: {
     'orderItem': function (orderItem) {
-      console.log(orderItem)
-      const specValues = orderItem.spec_values
+      // console.log(orderItem);
+      const specValues = orderItem.spec_values;
       this.setData({
         specValuesText: specValues ? parseSpecValueArray(specValues) : parseSpecValue(orderItem.specs)
-      })
+      });
     }
   },
 
   attached() {
-    console.log(this.properties.orderItem)
+    // console.log(this.properties.orderItem);
   },
 
   /**

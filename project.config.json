@@ -23,7 +23,8 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true,
+		"useIsolateContext": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -86,6 +87,13 @@
 					"name": "商品搜索",
 					"pathName": "pages/search/search",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pay-success",
+					"pathName": "pages/pay-success/pay-success",
+					"query": "pid=15",
 					"scene": null
 				}
 			]

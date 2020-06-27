@@ -1,6 +1,7 @@
 import { Cart } from "../../models/cart";
 import { Calculator } from "../../models/caculator";
 import { SpuPaging } from "../../models/spu-paging";
+import { ShoppingWay } from "../../core/enum";
 
 // pages/cart/cart.js
 const cart = new Cart();
@@ -144,7 +145,7 @@ Page({
       return;
     }
     wx.navigateTo({
-      url: `/pages/order/order`
+      url: `/pages/order/order?way=${ShoppingWay.CART}`
     });
   },
   /**

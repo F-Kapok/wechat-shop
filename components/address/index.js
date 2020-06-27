@@ -21,15 +21,15 @@ Component({
 
   lifetimes: {
     attached() {
-      const address = Address.getLocal()
+      const address = Address.getLocal();
       if (address) {
         this.setData({
           address,
           hasChosen: true
-        })
+        });
         this.triggerEvent('address', {
           address
-        })
+        });
       }
     }
   },
@@ -67,6 +67,9 @@ Component({
           hasChosen: true
         });
         Address.setLocal(res);
+        this.triggerEvent('address', {
+          address: res
+        });
       }
     },
     async hasAuthorizedAddress() {

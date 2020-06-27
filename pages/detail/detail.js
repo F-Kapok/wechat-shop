@@ -1,9 +1,10 @@
 import { Spu } from "../../models/spu";
-import { ShoppingWay } from "../../core/enum";
+import { CouponCenterType, ShoppingWay } from "../../core/enum";
 import { SaleExplain } from "../../models/sale-explain";
 import { getWindowHeightRpx } from "../../utils/system";
 import { Cart } from "../../models/cart";
 import { CartItem } from "../../models/cart-item";
+import { Coupon } from "../../models/coupon";
 
 // pages/detail/detail.js
 Page({
@@ -22,13 +23,15 @@ Page({
     onLoad: async function (options) {
         const pid = options.pid;
         const spu = await Spu.getDetail(pid);
+        const coupons = await Coupon.getTop2CouponsByCategory(spu.category_id);
         const explain = await SaleExplain.getFixed();
         const windowHeight = await getWindowHeightRpx();
         const h = windowHeight - 100;
         this.setData({
             spu,
             explain,
-            h
+            h,
+            coupons
         });
         this.updateCartItemCount();
     },
@@ -49,6 +52,14 @@ Page({
     onGotoHome(event) {
         wx.switchTab({
             url: '/pages/home/home'
+        });
+    },
+
+    onGoToCouponCenter(event) {
+        const type = CouponCenterType.SPU_CATEGORY;
+        const cid = this.data.spu.category_id;
+        wx.navigateTo({
+            url: `/pages/coupon/coupon?cid=${cid}&type=${type}`
         });
     },
 
@@ -74,6 +85,13 @@ Page({
             cart.addItem(cartItem);
             this.updateCartItemCount();
         }
+
+        if (event.detail.orderWay === ShoppingWay.BUY) {
+            wx.navigateTo({
+                url: `/pages/order/order?sku_id=${chosenSku.id}&count=${skuCount}&way=${ShoppingWay.BUY}`
+            });
+        }
+
     },
 
     updateCartItemCount() {

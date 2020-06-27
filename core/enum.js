@@ -46,6 +46,33 @@ const CouponCenterType = {
     SPU_CATEGORY: 'spu_category'
 }
 
+const CouponStatus = {
+    CAN_COLLECT: 0,
+    AVAILABLE: 1,
+    USED: 2,
+    EXPIRED: 3
+}
+
+const CouponOperate = {
+    PICK: 'pick',
+    UNPICK: 'unpick'
+}
+
+const CouponType = {
+    FULL_MINUS: 1,
+    FULL_OFF: 2,
+    NO_THRESHOLD_MINUS: 3
+}
+
+const OrderStatus = {
+    ALL: 0,
+    UNPAID: 1,
+    PAID: 2,
+    DELIVERED: 3,
+    FINISHED: 4,
+    CANCELED: 5,
+}
+
 export {
     CellStatus,
     ShoppingWay,
@@ -54,5 +81,9 @@ export {
     BannerItemType,
     AuthAddress,
     OrderExceptionType,
-    CouponCenterType
+    CouponCenterType,
+    CouponStatus,
+    CouponOperate,
+    CouponType,
+    OrderStatus
 }

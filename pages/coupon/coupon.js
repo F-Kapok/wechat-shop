@@ -1,4 +1,6 @@
-const { Activity } = require("../../models/activity");
+import { Activity } from "../../models/activity";
+import { CouponCenterType } from "../../core/enum";
+import { Coupon } from "../../models/coupon";
 
 // pages/coupon/coupon.js
 Page({
@@ -7,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    coupons: []
   },
 
   /**
@@ -16,10 +18,23 @@ Page({
   onLoad: async function (options) {
     const aName = options.name;
     const type = options.type;
+    const cid = options.cid;
+
     let coupons;
-    const activity = await Activity.getActivityWithCoupon(aName);
-    coupons = activity.coupons;
-    console.log(coupons);
+
+    if (type === CouponCenterType.ACTIVITY) {
+      const activity = await Activity.getActivityWithCoupon(aName)
+      coupons = activity.coupons
+    }
+    if (type === CouponCenterType.SPU_CATEGORY) {
+      coupons = await Coupon.getCouponsByCategory(cid)
+      const wholeStoreCoupons = await Coupon.getWholeStoreCoupons()
+      coupons = coupons.concat(wholeStoreCoupons)
+    }
+
+    this.setData({
+      coupons
+    });
   },
 
   /**
