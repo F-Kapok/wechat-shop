@@ -17,12 +17,12 @@ page {
 
 @font-face {
     font-family: 'kapok';  /* project id 1594862 */
-    src: url('//at.alicdn.com/t/font_1594862_6km8tcqvmch.eot');
-    src: url('//at.alicdn.com/t/font_1594862_6km8tcqvmch.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1594862_6km8tcqvmch.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1594862_6km8tcqvmch.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1594862_6km8tcqvmch.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1594862_6km8tcqvmch.svg#kapok') format('svg');
+    src: url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.eot');
+    src: url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.svg#kapok') format('svg');
   }
 
 .kapok{
@@ -84,4 +84,8 @@ page {
 
 .l-icon-flower:before{
     content:"\e61d"
+}
+
+.l-icon-r-arrow:before{
+    content:"\e66e"
 }

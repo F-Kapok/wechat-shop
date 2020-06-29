@@ -15,13 +15,15 @@ Page({
     isEmpty: false,
     allChecked: false,
     totalPrice: 0,
-    totalSkuCount: 0
+    totalSkuCount: 0,
+    logo: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
+
     const cartData = await cart.getAllSkuFromServer();
     this.setData({
       cartItems: cartData.items
@@ -30,8 +32,7 @@ Page({
   },
 
   async initBottomSpuList() {
-    const paging = SpuPaging.getLatestPaging();
-    // const paging = SpuPaging.getHotPaging();
+    const paging = SpuPaging.getHotPaging();
     this.data.spuPaging = paging;
     const data = await paging.getMoreData();
     if (!data) {
@@ -159,8 +160,9 @@ Page({
     wx.lin.renderWaterFlow(data.items);
     if (!data.moreData) {
       this.setData({
-        loadingType: 'end'
-      })
+        loadingType: 'end',
+        logo: true
+      });
     }
   },
 })

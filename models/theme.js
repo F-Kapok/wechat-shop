@@ -6,6 +6,7 @@ class Theme {
     static locationF = 't-3';
     static locationH = 't-4';
     themes = [];
+    static forYou = 't-6';
 
     async getThemes() {
         const names = `${Theme.locationA},${Theme.locationE},${Theme.locationF},${Theme.locationH}`;
@@ -38,6 +39,12 @@ class Theme {
     static getThemeSpuByName(name) {
         return Http.request({
             url: `/theme/name/${name}/with_spu`
+        });
+    }
+
+    static getForYou() {
+        return Http.request({
+            url: `/theme/name/${this.forYou}/with_spu`
         });
     }
 }

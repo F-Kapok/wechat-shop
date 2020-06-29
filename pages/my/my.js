@@ -9,7 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    couponCount: 0
+    couponCount: 0,
+    logo: false
   },
 
   /**
@@ -83,5 +84,5 @@ Page({
 
   onDialogConfirm(event) {
     wx.openSetting();
-  },
+  }
 })

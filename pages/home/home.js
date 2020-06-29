@@ -88,6 +88,13 @@ Page({
             url: `/pages/coupon/coupon?name=${name}&type=${CouponCenterType.ACTIVITY}`
         });
     },
+    onGoToTheme(event) {
+        const tName = event.currentTarget.dataset.tname
+        wx.navigateTo({
+            url: `/pages/theme/theme?tname=${tName}`
+        })
+    },
+
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */

@@ -1,7 +1,7 @@
-<l-loadmore show type="{{loadingType}}" end-text="-kapok作品-">
+<l-loadmore show type="{{loadingType}}" end-text="-Kapok作品-">
     <view slot="content" class="home">
         <!-- 主题A -->
-        <image class="top-theme" src="{{themeA.entrance_img}}" />
+        <image class="top-theme" src="{{themeA.entrance_img}}" data-tname="t-1" bind:tap="onGoToTheme" />
         <!-- bannerB -->
         <swiper class="swiper" indicator-dots indicator-active-color="#157658" autoplay circular>
             <block wx:for="{{bannerB.items}}" wx:key="index">
@@ -17,11 +17,11 @@
         <!-- spu列表 -->
         <s-spu-scroll theme="{{themeE}}" spu-list="{{themeESpu}}" wx:if="{{themeE.online}}"></s-spu-scroll>
         <!-- 主题F -->
-        <image class="quality" src="{{themeF.entrance_img}}" />
+        <image class="quality" src="{{themeF.entrance_img}}" data-tname="t-3" bind:tap="onGoToTheme" />
         <!-- 热榜列表-theme+banner组合形式 -->
         <s-hot-list banner="{{bannerG}}" />
         <!-- 主题H -->
-        <image class="fashion" src="{{themeH.entrance_img}}" />
+        <image class="fashion" src="{{themeH.entrance_img}}" data-tname="t-4" bind:tap="onGoToTheme" />
         <!-- 为你推荐-瀑布流 -->
         <view class="spu-bottom">
             <image class="title-spu-bottom" src="/imgs/home/title@interest.png" />

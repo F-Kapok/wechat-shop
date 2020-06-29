@@ -1,15 +1,15 @@
 <view class="container">
-    <image class="title" src="{{banner.img}}" />
+    <image class="title" src="{{banner.img}}" data-tname="t-5" bind:tap="onGotToTheme" />
     <view class="inner-container">
         <view hover-class="rect-hover" hover-stay-time="300">
-            <image class="left" src="{{left.img}}" />
+            <image data-keyword="{{left.keyword}}" data-type="{{left.type}}" bind:tap="onGotoDetail" class="left" src="{{left.img}}" />
         </view>
         <view class="right-container">
             <view hover-class="rect-hover" hover-stay-time="300">
-                <image class="right-size" src="{{rightTop.img}}" />
+                <image data-keyword="{{rightTop.keyword}}" data-type="{{rightTop.type}}" bind:tap="onGotoDetail" class="right-size" src="{{rightTop.img}}" />
             </view>
             <view hover-class="rect-hover" hover-stay-time="300">
-                <image class="right-size" src="{{rightBottom.img}}" />
+                <image data-keyword="{{rightBottom.keyword}}" data-type="{{rightBottom.type}}" bind:tap="onGotoDetail" class="right-size" src="{{rightBottom.img}}" />
             </view>
         </view>
     </view>
