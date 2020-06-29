@@ -8,6 +8,7 @@ import { CouponBO } from "../../models/coupon-bo";
 import { CouponOperate, ShoppingWay } from "../../core/enum";
 import { OrderPost } from "../../models/order-post";
 import { Payment } from "../../models/payment";
+import { showToast } from "../../utils/ui";
 
 const cart = new Cart();
 Page({
