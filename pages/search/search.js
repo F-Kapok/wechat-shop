@@ -11,13 +11,16 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        search: false,
+        historyTags: [],
+        hotTags: [],
+        isEmpty: false
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: async function(options) {
+    onLoad: async function (options) {
         const historyTags = history.get();
         const hotTags = await Tag.getSearchTags();
         this.setData({
@@ -50,6 +53,10 @@ Page({
             fullScreen: 'true'
         })
         const data = await paging.getMoreData();
+        console.log(data.empty)
+        this.setData({
+            isEmpty: data.empty
+        });
         wx.lin.hideLoading();
         this.bindItems(data);
     },

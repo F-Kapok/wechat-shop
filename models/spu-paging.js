@@ -11,6 +11,12 @@ class SpuPaging {
             url: `/spu/hotLatest`
         }, 5);
     }
+
+    static getByCategoryPaging(cid, isRoot) {
+        return new Paging({
+            url: `/spu/by/category/${cid}?is_root=${isRoot}`
+        })
+    }
 }
 
 export {

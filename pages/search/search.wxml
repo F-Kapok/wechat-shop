@@ -35,12 +35,15 @@
     </view>
     <view wx:else>
         <l-loadmore show end-text="- Kapok作品 -" type="{{loadingType}}" loading-text="努力加载中...">
-            <view slot="content" hidden="{{!search}}" class="spu-bottom">
+            <view slot="content" hidden="{{!search}}" wx:if="{{!isEmpty}}" class="spu-bottom">
                 <block wx:for="{{items}}" wx:key="index">
                     <s-spu-preview-r data="{{item}}"></s-spu-preview-r>
                 </block>
             </view>
         </l-loadmore>
+        <view class="empty-container" wx:if="{{isEmpty}}">
+            <s-empty show-btn show text="未搜索到相关商品" btn-text="去逛逛吧~"></s-empty>
+        </view>
     </view>
     <l-loading></l-loading>
 </view>
