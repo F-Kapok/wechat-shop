@@ -16,7 +16,7 @@
             </block>
         </view>
         <view class="coupon-right">
-            <text>立即领取</text>
+            <text>{{optionName}}</text>
             <l-icon name="right" color="#157658" size="24"></l-icon>
         </view>
     </view>

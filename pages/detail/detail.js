@@ -14,7 +14,10 @@ Page({
      */
     data: {
         showRealm: false,
-        cartItemCount: 0
+        cartItemCount: 0,
+        optionName: "",
+        spu: null,
+        explain: []
     },
 
     /**
@@ -23,8 +26,9 @@ Page({
     onLoad: async function (options) {
         const pid = options.pid;
         const spu = await Spu.getDetail(pid);
+        this.data.spu = spu;
         const coupons = await Coupon.getTop2CouponsByCategory(spu.category_id);
-        const explain = await SaleExplain.getFixed();
+        const explain = await SaleExplain.getFixed(pid);
         const windowHeight = await getWindowHeightRpx();
         const h = windowHeight - 100;
         this.setData({
@@ -34,6 +38,39 @@ Page({
             coupons
         });
         this.updateCartItemCount();
+        this.setOptionName(spu);
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: async function () {
+        //更改操作名称
+        if (this.data.spu) {
+            this.setOptionName(this.data.spu);
+        }
+    },
+
+    async setOptionName(spu) {
+        let coupons = await Coupon.getCouponsByCategory(spu.category_id);
+        const wholeStoreCoupons = await Coupon.getWholeStoreCoupons();
+        coupons = coupons.concat(wholeStoreCoupons);
+        let isOk = true;
+        for (let index = 0; index < coupons.length; index++) {
+            if (coupons[index].status !== 1) {
+                isOk = false;
+                break;
+            }
+        }
+        if (isOk) {
+            this.setData({
+                optionName: '立即查看'
+            });
+        } else {
+            this.setData({
+                optionName: '立即领取'
+            });
+        }
     },
 
     onSpecChange(event) {
@@ -106,13 +143,6 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
 
     },
 

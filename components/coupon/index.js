@@ -26,13 +26,19 @@ Component({
   },
 
   observers: {
-    'coupon': function (coupon) {
+    'coupon,status': function (coupon, status) {
       if (!coupon) {
         return;
       }
       this.setData({
-        _coupon: new CouponData(coupon),
+        _coupon: new CouponData(coupon, status)
       });
+      if (status === CouponStatus.AVAILABLE) {
+        this.setData({
+          userCollected: true,
+          _status: status
+        });
+      }
     }
   },
 

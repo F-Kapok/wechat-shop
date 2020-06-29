@@ -73,6 +73,15 @@ Page({
 
   async openAddress() {
     let res;
-    res = await promisic(wx.chooseAddress)();
-  }
+    try {
+      res = await wx.chooseAddress({
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  },
+
+  onDialogConfirm(event) {
+    wx.openSetting();
+  },
 })

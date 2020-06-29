@@ -9,6 +9,7 @@ class CouponData {
         Object.assign(this, coupon);
         this.startTime = getSlashYMD(coupon.start_time);
         this.endTime = getSlashYMD(coupon.end_time);
+        this.status = status;
     }
 }
 
