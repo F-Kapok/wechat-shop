@@ -22,7 +22,9 @@
             <text>待收货</text>
         </view>
         <view data-key="4" bind:tap="onGotoMyOrder" class="icon-item">
-            <l-icon name="over" l-class="kapok"></l-icon>
+            <l-badge show="{{finishedCount!==0}}" shape="circle" max-count="99" value="{{finishedCount}}">
+                <l-icon name="over" l-class="kapok"></l-icon>
+            </l-badge>
             <text>已完成</text>
         </view>
     </view>

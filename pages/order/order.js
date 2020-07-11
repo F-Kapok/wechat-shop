@@ -61,6 +61,7 @@ Page({
     }
     const coupons = await Coupon.getMySelfWithCategory();
     const couponBOList = this.packageCouponBOList(coupons, order);
+    console.log(orderItems)
     this.setData({
       orderItems,
       couponBOList,
@@ -143,7 +144,7 @@ Page({
     }
     //立即购买不触发
     if (this.data.shoppingWay === ShoppingWay.CART) {
-      cart.removeCheckedItems()
+      cart.removeCheckedItems();
     }
     wx.lin.showLoading({
       type: "flash",
@@ -158,11 +159,11 @@ Page({
       const res = await wx.requestPayment(payParams)
       wx.redirectTo({
         url: `/pages/pay-success/pay-success?oid=${oid}`
-      })
+      });
     } catch (e) {
       wx.redirectTo({
         url: `/pages/my-order/my-order?key=${1}`
-      })
+      });
     }
   },
 
@@ -179,6 +180,7 @@ Page({
 
   async postOrder(orderPost) {
     try {
+      console.log(orderPost)
       const serverOrder = await Order.postOrderToServer(orderPost);
       if (serverOrder) {
         return serverOrder.id;

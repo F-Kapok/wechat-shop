@@ -17,6 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+  },
+
+  onShow: async function () {
     const coupons = await Coupon.getMyCoupons(CouponStatus.AVAILABLE);
     this.setData({
       couponCount: coupons.length

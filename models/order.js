@@ -150,11 +150,32 @@ class Order {
         return orderPage.total;
     }
     /**
+     * 获取已完成的订单数量
+     */
+    static async getFinishedCount() {
+        const orderPage = await Http.request({
+            url: `/order/by/status/${OrderStatus.FINISHED}`,
+            data: {
+                start: 0,
+                count: 1
+            }
+        });
+        return orderPage.total;
+    }
+    /**
      * 获取已取消的订单数量
      */
     static getPagingCanceled() {
         return new Paging({
             url: `/order/status/canceled`
+        })
+    }
+    /**
+     * 获取订单详情
+     */
+    static async getDetail(oid) {
+        return Http.request({
+            url: `/order/detail/${oid}`
         })
     }
     /**

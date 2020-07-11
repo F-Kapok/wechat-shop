@@ -15,7 +15,8 @@ Component({
   data: {
     unpaidCount: 0,
     paidCount: 0,
-    deliveredCount: 0
+    deliveredCount: 0,
+    finishedCount: 0
   },
 
   lifetimes: {
@@ -28,10 +29,12 @@ Component({
       const unpaidCount = await Order.getUnpaidCount();
       const paidCount = await Order.getPaidCount();
       const deliveredCount = await Order.getDeliveredCount();
+      const finishedCount = await Order.getFinishedCount();
       this.setData({
         unpaidCount,
         paidCount,
-        deliveredCount
+        deliveredCount,
+        finishedCount
       });
     }
   },

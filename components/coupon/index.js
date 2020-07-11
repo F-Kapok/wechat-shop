@@ -26,7 +26,7 @@ Component({
   },
 
   observers: {
-    'coupon,status': function (coupon, status) {
+    'coupon,status,key': function (coupon, status) {
       if (!coupon) {
         return;
       }
@@ -36,6 +36,11 @@ Component({
       if (status === CouponStatus.AVAILABLE) {
         this.setData({
           userCollected: true,
+          _status: status
+        });
+      } else {
+        this.setData({
+          userCollected: false,
           _status: status
         });
       }
@@ -60,6 +65,12 @@ Component({
       }
       if (this.data._status === CouponStatus.AVAILABLE) {
         showToast('您已领取了该优惠券,在"我的优惠券"中可查看');
+        return;
+      } else if (this.data._status === CouponStatus.USED) {
+        showToast('该优惠券已使用');
+        return;
+      } else if (this.data._status === CouponStatus.EXPIRED) {
+        showToast('该优惠券已过期');
         return;
       }
       const couponId = event.currentTarget.dataset.id;

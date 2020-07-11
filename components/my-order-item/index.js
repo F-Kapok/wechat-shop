@@ -34,7 +34,7 @@ Component({
    */
   methods: {
     onGotoDetail(event) {
-      console.log(this.data._item)
+      // console.log(this.data._item)
       const oid = this.data._item.id
       wx.navigateTo({
         url: `/pages/order-detail/order-detail?oid=${oid}`
@@ -49,29 +49,26 @@ Component({
 
     async onPay(event) {
       const oid = this.data._item.id;
-
       if (!oid) {
-        this.enableSubmitBtn()
-        return
+        this.enableSubmitBtn();
+        return;
       }
       wx.lin.showLoading({
         type: "flash",
         fullScreen: true,
         color: "#157658"
-      })
-      const payParams = await Payment.getPayParms(oid)
+      });
+      const payParams = await Payment.getPayParams(oid);
       // let payStatus = OrderStatus.UNPAID
-      let res
+      let res;
       try {
-        res = await Payment.pay(payParams)
-        wx.lin.hideLoading()
-        console.log(res)
-        this.triggerEvent('paysuccess', {
-          oid
-        })
+        res = await wx.requestPayment(payParams);
+        wx.lin.hideLoading();
+        wx.navigateTo({
+          url: `/pages/pay-success/pay-success?oid=${oid}`
+        });
       } catch (e) {
-        console.error(e)
-        wx.lin.hideLoading()
+        wx.lin.hideLoading();
       }
     }
   }

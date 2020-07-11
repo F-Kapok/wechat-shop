@@ -5,7 +5,7 @@ class OrderPost {
     sku_info_list = [];
     address = {};
 
-    constructor(totalPrice, finalTotalPrice, couponId, skuInfoList, address) {
+    constructor(totalPrice, finalTotalPrice, couponId, skuInfoList, address, orderItems) {
         this.total_price = totalPrice;
         this.final_total_price = finalTotalPrice;
         this.coupon_id = couponId;
