@@ -61,9 +61,9 @@ Component({
     },
 
     aboutUs(event) {
-      wx.navigateTo({
-        url: `/pages/about/about`
-      });
+      // wx.navigateTo({
+      //   url: `/pages/about/about`
+      // });
     }
   }
 })

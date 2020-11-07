@@ -29,5 +29,5 @@
     </view>
 </view>
 <view wx:if="{{logo}}" class="logo-container">
-    <image class="logo" src="../../imgs/tabbar/logo.png" />
+    <!-- <image class="logo" src="../../imgs/tabbar/logo.png" /> -->
 </view>
