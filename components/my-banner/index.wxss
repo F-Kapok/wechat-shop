@@ -49,6 +49,13 @@
     color: #157658;
 }
 
+.auth-qrcode{
+    position: absolute;
+    top:-5rpx;
+    /*top: -50rpx;*/
+    right: 0;
+}
+
 .row-bottom{
     display:flex;
     flex-direction:row;

@@ -1,13 +1,13 @@
 // components/my-banner/index.js
-import { User } from "../../models/user";
-import { promisic } from "../../utils/util";
+import { User } from '../../models/user'
+import { promisic } from '../../utils/util'
 
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    couponCount: Number
+    couponCount: Number,
   },
 
   /**
@@ -15,23 +15,22 @@ Component({
    */
   data: {
     showLoginBtn: false,
-    couponCount: Number
+    couponCount: Number,
   },
 
   lifetimes: {
     async attached() {
-      // console.log(this.properties.couponCount);
-      if (!await this.hasAuthUserInfo()) {
+      console.log(this.hasAuthUserInfo())
+      if (!(await this.hasAuthUserInfo())) {
         this.setData({
-          showLoginBtn: true
-        });
+          showLoginBtn: true,
+        })
       }
-    }
+    },
   },
 
   observers: {
-    'couponCount': function (couponCount) {
-    }
+    couponCount: function (couponCount) {},
   },
 
   /**
@@ -41,29 +40,35 @@ Component({
     async onAuthUserInfo(event) {
       // console.log(event.detail);
       if (event.detail.userInfo) {
-        const success = await User.updateUserInfo(event.detail.userInfo);
+        const success = await User.updateUserInfo(event.detail.userInfo)
         this.setData({
-          showLoginBtn: false
-        });
+          showLoginBtn: false,
+        })
       }
     },
 
+    onGotoQrcode(event) {
+      wx.navigateTo({
+        url: `/pages/code/code`,
+      })
+    },
+
     async hasAuthUserInfo() {
-      const setting = await promisic(wx.getSetting)();
-      const userInfo = setting.authSetting['scope.userInfo'];
-      return !!userInfo;
+      const setting = await promisic(wx.getSetting)()
+      const userInfo = setting.authSetting['scope.userInfo']
+      return !!userInfo
     },
 
     onGotoMyCoupon(event) {
       wx.navigateTo({
-        url: `/pages/my-coupon/my-coupon`
-      });
+        url: `/pages/my-coupon/my-coupon`,
+      })
     },
 
     aboutUs(event) {
       // wx.navigateTo({
       //   url: `/pages/about/about`
       // });
-    }
-  }
+    },
+  },
 })

@@ -1,6 +1,5 @@
 /**app.wxss**/
 
-
 /* .container {
     height: 100%;
     display: flex;
@@ -12,80 +11,85 @@
 } */
 
 page {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 @font-face {
-    font-family: 'kapok';  /* project id 1594862 */
-    src: url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.eot');
-    src: url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1594862_oy9ngr13jh.svg#kapok') format('svg');
-  }
-
-.kapok{
-    font-family: kapok !important;
-    color: #157568;
-}
-  
-.l-icon-home:before{
-    content:"\e634"
+  font-family: 'kapok'; /* project id 1594862 */
+  src: url('//at.alicdn.com/t/font_1594862_xtafs16mp9h.eot');
+  src: url('//at.alicdn.com/t/font_1594862_xtafs16mp9h.eot?#iefix')
+      format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1594862_xtafs16mp9h.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1594862_xtafs16mp9h.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1594862_xtafs16mp9h.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1594862_xtafs16mp9h.svg#kapok') format('svg');
 }
 
-.l-icon-cart1:before{
-    content:"\e603"
+.kapok {
+  font-family: kapok !important;
+  color: #157568;
 }
 
-.l-icon-check:before{
-    content: "\e65d"
+.l-icon-home:before {
+  content: '\e634';
+}
+
+.l-icon-cart1:before {
+  content: '\e603';
+}
+
+.l-icon-check:before {
+  content: '\e65d';
 }
 
 .l-icon-ads:before {
-    content: "\e640"
+  content: '\e640';
 }
 
 .l-icon-about:before {
-    content: "\e608"
+  content: '\e608';
 }
 
 .l-icon-unpaid:before {
-    content: "\e61c";
+  content: '\e61c';
 }
 
 .l-icon-paid:before {
-    content: "\e6c2";
+  content: '\e6c2';
 }
 
 .l-icon-delivered:before {
-    content: "\e60a"
+  content: '\e60a';
 }
 
 .l-icon-over:before {
-    content: "\e629"
+  content: '\e629';
 }
 
-.l-icon-coupon:before{
-    content: "\e670"
+.l-icon-coupon:before {
+  content: '\e670';
 }
 
-.l-icon-order1:before{
-    content: '\e614'
+.l-icon-order1:before {
+  content: '\e614';
 }
 
-.l-icon-address2:before{
-    content:'\e60f'
+.l-icon-address2:before {
+  content: '\e60f';
 }
 
-.l-icon-sunny1:before{
-    content:"\e6e7"
+.l-icon-sunny1:before {
+  content: '\e6e7';
 }
 
-.l-icon-flower:before{
-    content:"\e61d"
+.l-icon-flower:before {
+  content: '\e61d';
 }
 
-.l-icon-r-arrow:before{
-    content:"\e66e"
+.l-icon-r-arrow:before {
+  content: '\e66e';
+}
+
+.l-icon-qrcode:before {
+  content: '\e68d';
 }
