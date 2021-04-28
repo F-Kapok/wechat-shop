@@ -29,7 +29,7 @@ Page({
       })
       wxbarcode.barcode('barcode', this.data.mobile + time, 680, 200)
       wxbarcode.qrcode('qrcode', this.data.mobile + time, 420, 420)
-    }, 10000)
+    }, 60000)
   },
 
   nowTime() {
