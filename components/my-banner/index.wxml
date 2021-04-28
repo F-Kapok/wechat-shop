@@ -1,17 +1,31 @@
 <view class="container">
   <view class="inner-container">
     <l-avatar size="140" class="avatar-container" l-class="avatar" shape="square" open-data="{{['userAvatarUrl','userNickName']}}"></l-avatar>
-    <l-button wx:if="{{showLoginBtn}}" l-class="auth-btn" bg-color="#DCEBE6" open-type="getUserInfo" bind:getuserinfo="onAuthUserInfo" height="48" width="120">
-      登 陆
-    </l-button>
+    <view wx:if="{{showLoginBtn}}">
+      <l-button l-class="auth-btn" bg-color="#DCEBE6" open-type="getUserInfo" bind:getuserinfo="onAuthUserInfo" height="48" width="120">
+        登 陆
+      </l-button>
+    </view>
     <view wx:else class="auth-qrcode">
-      <l-icon name="qrcode" size="80" l-class="kapok" bind:tap="onGotoQrcode"></l-icon>
+      <button class="button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        <l-icon name="qrcode" size="80" l-class="kapok"></l-icon>
+      </button>
     </view>
     <view class="row-bottom">
       <view class="bottom-container">
         <view bind:tap="onGotoMyCoupon" class="left">
           <text>{{couponCount}}</text>
           <text>优惠券</text>
+        </view>
+        <view class="v-line"></view>
+        <view bind:tap="aboutUs" class="left">
+          <text>{{integral}}</text>
+          <text>积分余额</text>
+        </view>
+        <view class="v-line"></view>
+        <view bind:tap="aboutUs" class="left">
+          <text>{{count}}</text>
+          <text>剩余卡次</text>
         </view>
         <view class="v-line"></view>
         <view bind:tap="aboutUs" class="right">

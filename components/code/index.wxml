@@ -1,4 +1,0 @@
-<view class='barcode'>
-  <slot name="content2" bindlongpress="saveImg" data-index="{{index}}"></slot>
-  <view class="couponNumber">{{couponNumber}}</view>
-</view>

@@ -1,91 +1,90 @@
-import { Coupon } from "../../models/coupon";
-import { promisic } from "../../utils/util";
-import { AuthAddress, CouponStatus } from "../../core/enum";
+import { Coupon } from '../../models/coupon'
+import { promisic } from '../../utils/util'
+import { AuthAddress, CouponStatus } from '../../core/enum'
 
 // pages/my/my.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     couponCount: 0,
-    logo: false
+    integral: 10,
+    count: 16,
+    logo: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
-  },
+  onLoad: async function (options) {},
 
   onShow: async function () {
-    const coupons = await Coupon.getMyCoupons(CouponStatus.AVAILABLE);
+    const coupons = await Coupon.getMyCoupons(CouponStatus.AVAILABLE)
     this.setData({
-      couponCount: coupons.length
-    });
+      couponCount: coupons.length,
+    })
   },
 
   onGotoMyCoupon(event) {
     wx.navigateTo({
-      url: "/pages/my-coupon/my-coupon"
-    });
+      url: '/pages/my-coupon/my-coupon',
+    })
   },
   onGotoMyOrder(event) {
     wx.navigateTo({
-      url: "/pages/my-order/my-order?key=0"
-    });
+      url: '/pages/my-order/my-order?key=0',
+    })
   },
 
   onGotoMyCourse(event) {
     wx.navigateTo({
-      url: "/pages/about-course/about-course"
-    });
+      url: '/pages/about-course/about-course',
+    })
   },
 
   onGotoLinUI() {
     wx.navigateToMiniProgram({
-      appId: 'Lin-UI AppID'
-    });
+      appId: 'Lin-UI AppID',
+    })
   },
 
   async onMgrAddress(event) {
-    const authStatus = await this.hasAuthorizedAddress();
+    const authStatus = await this.hasAuthorizedAddress()
     if (authStatus === AuthAddress.DENY) {
       this.setData({
-        showDialog: true
-      });
-      return;
+        showDialog: true,
+      })
+      return
     }
-    this.openAddress();
+    this.openAddress()
   },
 
   async hasAuthorizedAddress() {
-    const setting = await promisic(wx.getSetting)();
+    const setting = await promisic(wx.getSetting)()
     // console.log(setting)
-    const addressSetting = setting.authSetting['scope.address'];
+    const addressSetting = setting.authSetting['scope.address']
     if (addressSetting === undefined) {
-      return AuthAddress.NOT_AUTH;
+      return AuthAddress.NOT_AUTH
     }
     if (addressSetting === false) {
-      return AuthAddress.DENY;
+      return AuthAddress.DENY
     }
     if (addressSetting === true) {
-      return AuthAddress.AUTHORIZED;
+      return AuthAddress.AUTHORIZED
     }
   },
 
   async openAddress() {
-    let res;
+    let res
     try {
-      res = await wx.chooseAddress({
-      });
+      res = await wx.chooseAddress({})
     } catch (e) {
-      console.error(e);
+      console.error(e)
     }
   },
 
   onDialogConfirm(event) {
-    wx.openSetting();
-  }
+    wx.openSetting()
+  },
 })

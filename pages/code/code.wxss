@@ -11,7 +11,7 @@ page {
 }
 
 .container {
-padding-bottom: 10rpx;
+  padding-bottom: 10rpx;
 }
 
 .panel {
@@ -44,21 +44,35 @@ padding-bottom: 10rpx;
   width: 670rpx;
   height: 100rpx;
   line-height: 100rpx;
-  font-size: 38rpx;
+  font-size: 28;
   font-weight: bold;
+  text-align: center;
+  letter-spacing: 5rpx;
+  white-space: nowrap;
+  margin-bottom: -100rpx;
+}
+
+.bartext {
+  width: 670rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: gray;
+  font-size: 28rpx;
   text-align: center;
   letter-spacing: 10rpx;
   white-space: nowrap;
+  margin-bottom: -100rpx;
 }
 
 .barcode > canvas {
   width: 680rpx;
-  height: 200rpx;  
+  height: 200rpx;
 }
 
 .qrcode {
   height: 420rpx;
   display: flex;
+  margin-bottom: 200rpx;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;

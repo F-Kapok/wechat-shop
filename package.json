@@ -9,6 +9,7 @@
   "author": "k",
   "license": "ISC",
   "dependencies": {
+    "crypto-js": "^4.0.0",
     "lin-ui": "^0.6.11",
     "wxbarcode": "^1.0.2"
   }

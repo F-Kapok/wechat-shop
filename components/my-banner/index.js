@@ -1,13 +1,16 @@
 // components/my-banner/index.js
 import { User } from '../../models/user'
 import { promisic } from '../../utils/util'
-
+import { showToast } from '../../utils/ui'
+import { config } from '../../config/config'
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
     couponCount: Number,
+    integral: Number,
+    count: Number,
   },
 
   /**
@@ -16,6 +19,8 @@ Component({
   data: {
     showLoginBtn: false,
     couponCount: Number,
+    integral: Number,
+    count: Number,
   },
 
   lifetimes: {
@@ -31,6 +36,8 @@ Component({
 
   observers: {
     couponCount: function (couponCount) {},
+    integral: function (integral) {},
+    count: function (count) {},
   },
 
   /**
@@ -43,6 +50,27 @@ Component({
         const success = await User.updateUserInfo(event.detail.userInfo)
         this.setData({
           showLoginBtn: false,
+        })
+      }
+    },
+
+    async getPhoneNumber(event) {
+      if (event.detail.errMsg === 'getPhoneNumber:fail user deny') {
+        showToast('user deny')
+      } else {
+        const r = await wx.login()
+        const code = r.code
+        const res = await promisic(wx.request)({
+          url: config.apiBaseUrl + '/token/mobile',
+          method: 'POST',
+          data: {
+            code: code,
+            data: event.detail.encryptedData,
+            iv: event.detail.iv,
+          },
+        })
+        wx.navigateTo({
+          url: `/pages/code/code?mobile=` + res.data.phone_number,
         })
       }
     },

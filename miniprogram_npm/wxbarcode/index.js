@@ -4,10 +4,10 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1618891955783, function(require, module, exports) {
+__DEFINE__(1618973818601, function(require, module, exports) {
 module.exports = require('./demo/utils')
-}, function(modId) {var map = {"./demo/utils":1618891955784}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1618891955784, function(require, module, exports) {
+}, function(modId) {var map = {"./demo/utils":1618973818602}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1618973818602, function(require, module, exports) {
 var barcode = require('./barcode');
 var qrcode = require('./qrcode');
 
@@ -31,8 +31,8 @@ module.exports = {
 	barcode: barc,
 	qrcode: qrc
 }
-}, function(modId) { var map = {"./barcode":1618891955785,"./qrcode":1618891955786}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1618891955785, function(require, module, exports) {
+}, function(modId) { var map = {"./barcode":1618973818603,"./qrcode":1618973818604}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1618973818603, function(require, module, exports) {
 var CHAR_TILDE = 126;
 var CODE_FNC1 = 102;
 
@@ -437,7 +437,7 @@ var PATTERNS = [
 
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1618891955786, function(require, module, exports) {
+__DEFINE__(1618973818604, function(require, module, exports) {
 var QR = (function () {
 
     // alignment pattern
@@ -1217,6 +1217,6 @@ var QR = (function () {
 
 })()
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1618891955783);
+return __REQUIRE__(1618973818601);
 })()
 //# sourceMappingURL=index.js.map
